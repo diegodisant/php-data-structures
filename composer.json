@@ -1,0 +1,43 @@
+{
+    "name": "diegodisant/data-structures",
+    "description": "Common data structures written in php",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "2.18.x-dev",
+        "phpstan/phpstan": "0.12.x-dev",
+        "phpunit/phpunit": "10.0.x-dev"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Diego De Santiago",
+            "email": "developerdiego0@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "DataStructures\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DataStructures\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "php-cs-fixer fix --verbose --show-progress=estimating",
+        "lint:check": "php-cs-fixer --dry-run --verbose --show-progress=estimating",
+        "phpunit": "phpunit",
+        "phpstan": "phpstan analyse",
+        "test": [
+            "@lint:check",
+            "@phpunit",
+            "@phpstan"
+        ]
+    }
+}
