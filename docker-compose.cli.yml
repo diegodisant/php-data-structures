@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    init: true
+    volumes:
+      - .:/app
+    entrypoint: php
+
+  composer:
+    image: php-data-structures_php:latest
+    init: true
+    volumes:
+      - .:/app
+      - composer-cache:/root/.composer/cache
+      - ${COMPOSER_HOME:-~/.composer}
+    entrypoint: composer
+
+volumes:
+  composer-cache:
